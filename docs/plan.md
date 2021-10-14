@@ -1,38 +1,6 @@
 # Plan
 
-## What is Godot?
-
-Godot is a cross platform game engine written largely in c++. It's open source and under constant development. The editor runs on Windows, Linux, Mac and possibly BSD systems. Games can be exported to Windows, Linux, Mac, IOS, Android and HTML5.
-
-## What can be made in Godot?
-
-A number of successful games have been made in the Godot engine, although I haven't played any of them (I play a small amount of games). These are some popular games made with Godot (compiled from Wikipedia and Godot's website):
-- TailQuest Defense
-- Kingdoms of the Dump
-- Cruelty Squad
-- City Game Studio
-
-Godot stands out for its specialized 2D engine, which unlike Unity, works in pixel coordinates and **doesn't involve quaternions**. It also has a respectable 3D engine, although it's currently inferior to those of Unity and Unreal Engine.
-
-## Structure of projects and options for coding
-
-Godot uses a node system to structure games. Each node has properties (eg is RigidBody) and uses its subnodes to determine aspects of itself (such as setting the collision shape). The three basic components required to make games in Godot are scenes, nodes and scripts. Assets (art or 3d models) are probably going to be wanted however.
-
-Here is a list of the different methods of coding in Godot:
-- using GDScript
-- using the C# api
-- in another community-supplied binding such as Lua
-- there's possibly a visual scripting system; I haven't looked into it much though.
-
-I'll be using GDScript as it's the default option and has worked for me on previous projects. It's a bit idiosyncratic sometimes but it's better than trying to get mono working
-
-## Possible achievement
-
-I have 6 weeks to program the game. At a rate of 2 double lessons per week, this is 24 hours total work time - the time one might spend on a 3-day jam. Obviously, I could achieve more by working at home but my free time is not guaranteed and I don't want to count on it. Because of the limited time frame, I'll stick to making a 2D game.
-
-## Detailed planning
-
-#### Brainstorm:
+## Brainstorm:
 
 This is just a brainstorm of everything. I'm currently quite lacking in ideas because I did a game jam last week. Ideas that I like are made bold.
 
@@ -40,8 +8,13 @@ Game types:
 - **Platformer w/ multiple levels**
 - Platformer with one big level to explore
 - **Game where you try to get a higher score in the same level**
+    - Score based on time
+    - Score based on pickups
+    - Score based on kills
+- **Top-down thing (not RPG)**
 
 Core mechanics and ideas:
+- Definitely not a multiplayer game, even locally networked
 - The goal and spikes switch around when you press something/when you touch a button
 - A platformer where you can't stop moving
 - A puzzle-platformer where you can't move and the platforms move
@@ -51,18 +24,89 @@ Core mechanics and ideas:
 - A car racing game
     - You try and beat AI
     - You try and beat a specific time
-    - The track is changing as you drive
-- Gravity changes based on your position.
+    - **The track is changing as you drive**
+        - The shape changes
+        - Holes and blockages appear
+        - Based on the other vehicles' movement (overscope)
+            - They leave trails behind them
+                - Which slow you down
+                - Which give you speed boost
+                - Which do both
+                - Which can't be used at all
+            - They make holes in the track as they go
+    - The goal direction/finish point keeps changing
 - You have to change characters to finish. Quite overused and probably overscoping.
 - Limited number of jumps. Already lots of this exists.
 - Gravity changes
     - When you move
     - Randomly
+    - When you jump, gravity reverses
+    - Different sections of the world have different gravity
 - Top-down shooter
     - Have to shoot enemies
-    - Have to *not* shoot enemies
-- Have to survive without killing enemies
+    - **Have to *not* shoot enemies**
+- Have to survive but can't kill enemies
+- **Balance collecting a currency and using it to kill enemies**
+    - Your goal is to get snowballs but you have to throw them
+    - You collect things and grow bigger but you have to throw parts of you
+- Factory game (overscoping)
+    - Have to meet a quota
+    - Replay trying to beat production levels
+    - Have to not build things
+    - Have to sabotage the factory
 
-#### Final idea:
+Worlds:
+- Fire world
+- Rock world
+- Spaceship
+- Underwater
+- Forest
+- Arctic
 
-No idea yet
+## Final idea:
+
+A top-down, play-die-repeat game where you try to beat your previous score and (as an extension) potentially progress through a meta-game.
+
+#### Objective
+
+To gain as many points as possible, which is achieved by growing to the largest size. 
+
+#### Win condition
+
+There is no explicit win condition, but a player may feel as if they have won if they manage to beat their high score.
+
+#### Losing condition
+
+If you touch/get shot by an enemy then you die. If this feels too hard then a health meter where different enemies do different amounts of damage can be implemented.
+
+#### Core mechanics
+
+Player movement mechanic
+- The player can move up/down/left/right
+- They have acceleration and their speed is capped
+- The movement is controlled by arrow keys/WASD
+
+Growth mechanic
+- If the player picks up a growth item, then their size will increase
+- The amount that they grow is variable leading to them
+
+Shooting mechanic
+- To avoid being killed by the enemies, the player can shoot balls made of their material at the enemies.
+- Triggered by mouse release and controlled by mouse position
+- (Maybe) by holding the mouse down for extended periods of time, the size of the shot item is bigger, which can do more damage/kill multiple enemies
+
+#### Theming
+
+Artic/ice theme
+
+Player is a pile of snow/snowman who tries to collect pieces of snow to grow. Enemies are ?
+
+#### Extensibility
+
+The base product will be fairly small but it should allow for the following extensibility:
+- More enemy types
+    - Enemies that are harder
+    - Enemies that you can catch to not die
+- In-level power ups
+- Out-of-level power ups (store)
+- Skin store (no practical purpose but people like it)
