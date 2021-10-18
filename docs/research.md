@@ -24,8 +24,8 @@ Here is a list of the different methods of coding in Godot:
 - in another community-supplied binding such as Lua
 - there's possibly a visual scripting system; I haven't looked into it much though.
 
-I'll be using GDScript as it's the default option and has worked for me on previous projects. It's a bit idiosyncratic sometimes but it's better than trying to get mono working
+I'll be using GDScript as it's the default option and has worked for me on previous projects. It's a bit idiosyncratic sometimes but it's better than trying to get mono working.
 
 ## Possible achievement
 
-I have 6 weeks to program the game. At a rate of 2 double lessons per week, this is 24 hours total work time - the time one might spend on a 3-day jam. Obviously, I could achieve more by working at home but my free time is not guaranteed and I don't want to count on it. Because of the limited time frame, I'll stick to making a 2D game.
+I have 6 weeks to program the game. At a rate of 2 double lessons per week, this is 24 hours total work time - the time one might spend on a 3-day jam. Obviously, I could achieve more by working at home but my free time is not guaranteed and I don't want to count on it. Because of the limited time frame, I'll stick to making a 2D game. A 3D game would be fun (I haven't made one before) but I just don't think there is sufficient time for me to learn.

@@ -73,7 +73,7 @@ To gain as many points as possible, which is achieved by growing to the largest 
 
 #### Win condition
 
-There is no explicit win condition, but a player may feel as if they have won if they manage to beat their high score.
+There is no explicit win condition, but a player will feel happy if they manage to beat their high score.
 
 #### Losing condition
 
@@ -88,7 +88,7 @@ Player movement mechanic
 
 Growth mechanic
 - If the player picks up a growth item, then their size will increase
-- The amount that they grow is variable leading to them
+- The amount that they grow is variable so the player will have an incentive to go to certain places.
 
 Shooting mechanic
 - To avoid being killed by the enemies, the player can shoot balls made of their material at the enemies.
