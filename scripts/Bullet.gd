@@ -21,3 +21,9 @@ func _on_VisibilityNotifier2D_viewport_exited(viewport):
 func set_radius(new_radius):
 	radius = new_radius
 	Utils.set_sprite_size($Sprite, Vector2(radius * 2, radius * 2), $Sprite.texture)
+
+
+func _on_Bullet_area_entered(area):
+	# Don't hit the player after just being shot
+	if not area.is_in_group("player"):
+		queue_free()

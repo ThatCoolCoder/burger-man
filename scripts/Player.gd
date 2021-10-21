@@ -7,7 +7,9 @@ export var acceleration := 750
 export var friction := 1000
 
 export var starting_radius := 60.0
-var radius = starting_radius setget set_radius
+var radius := starting_radius setget set_radius
+export var growth_rate := 0.1
+var max_zoom_rate = 0.2
 
 export var bullet_offset = Vector2(0, -64)
 export (PackedScene) var bullet_prefab
@@ -38,6 +40,7 @@ func _physics_process(delta):
 	
 	rotate_to_face_mouse()
 	position_bullet()
+	update_camera_zoom(delta)
 
 func walk(delta: float):
 	var move_direction := Vector2.ZERO
@@ -68,7 +71,8 @@ func shoot():
 		remove_child(crnt_bullet)
 		crnt_bullet.frozen = false
 		crnt_bullet.move_direction = offset.angle() - PI / 2
-		crnt_bullet.global_position = global_position + bullet_offset.rotated(global_rotation)
+		var true_bullet_offset = bullet_offset * (radius / starting_radius)
+		crnt_bullet.global_position = global_position + true_bullet_offset.rotated(global_rotation)
 		get_tree().root.add_child(crnt_bullet)
 		crnt_bullet = null
 
@@ -77,12 +81,24 @@ func charge_shoot(delta):
 		crnt_bullet.radius += bullet_charge_rate * delta
 		crnt_bullet.radius = min(crnt_bullet.radius, max_bullet_radius)
 
+# View things run every frame
+# ---------------------------
+
 func rotate_to_face_mouse():
 	rotation = (get_global_mouse_position() - global_position).angle() + PI / 2
 
 func position_bullet():
 	if crnt_bullet != null:
-		crnt_bullet.position = bullet_offset
+		crnt_bullet.position = bullet_offset * (radius / starting_radius)
+
+func update_camera_zoom(delta):
+	var true_zoom_rate = $Camera2D.zoom.x * max_zoom_rate * delta
+	var zoom = Utils.converge_value($Camera2D.zoom.x, radius / starting_radius, true_zoom_rate)
+	$Camera2D.zoom.x = zoom
+	$Camera2D.zoom.y = zoom
+
+# Signals
+# -------
 
 func _on_Player_area_entered(area):
 	if not alive:
@@ -92,12 +108,15 @@ func _on_Player_area_entered(area):
 		print("Ouch!")
 		alive = false
 		$DieTimer.start()
+	if area.is_in_group("growth_item"):
+		set_radius(radius + area.radius * growth_rate)
 
 func _on_DieTimer_timeout():
 	emit_signal("dead")
 	print("Dead")
 
 func set_radius(new_radius):
+	print('radiussett')
 	radius = new_radius
 	$CollisionShape2D.shape.radius = radius
 	Utils.set_sprite_size($Sprite, Vector2(radius * 2, radius * 2), $Sprite.texture)

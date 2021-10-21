@@ -10,6 +10,7 @@ extents = Vector2( 31.5552, 32.1104 )
 "enemy",
 ]]
 script = ExtResource( 2 )
+speed = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -17,3 +18,5 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]

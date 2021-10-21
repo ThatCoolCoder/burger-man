@@ -14,3 +14,8 @@ func _physics_process(delta):
 func move_towards(entity: Node2D, delta):
 	global_position.x = Utils.converge_value(global_position.x, entity.global_position.x, speed * delta)
 	global_position.y = Utils.converge_value(global_position.y, entity.global_position.y, speed * delta)
+
+
+func _on_Enemy_area_entered(area):
+	if area.is_in_group("bullet"):
+		queue_free()
