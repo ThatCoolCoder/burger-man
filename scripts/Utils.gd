@@ -21,3 +21,7 @@ static func chunk_list(list: Array, chunk_size: int):
 			result.append(crnt_chunk)
 			crnt_chunk = []
 	return result
+	
+static func set_sprite_size(sprite: Sprite, size: Vector2, texture: Texture):
+	sprite.scale.x = size.x / texture.get_width()
+	sprite.scale.y = size.y / texture.get_height()

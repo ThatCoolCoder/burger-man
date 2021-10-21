@@ -2,16 +2,22 @@ extends Area2D
 
 export var speed := 400
 export var move_direction = PI / 2
-export var radius := 50
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var sprite_scale = $Sprite.texture.get_width() / (radius * 2)
-	$Sprite.scale = Vector2(sprite_scale, sprite_scale)
-	$CollisionShape2D.shape.radius = radius
-	print(sprite_scale)
+export var radius := 10.0 setget set_radius
+export var frozen := false
 
 func _physics_process(delta):
+	if frozen:
+		return
+		
 	var movement = Vector2(0, speed)
 	movement = movement.rotated(move_direction)
 	position += movement * delta
+
+
+func _on_VisibilityNotifier2D_viewport_exited(viewport):
+	if not frozen:
+		queue_free()
+
+func set_radius(new_radius):
+	radius = new_radius
+	Utils.set_sprite_size($Sprite, Vector2(radius * 2, radius * 2), $Sprite.texture)

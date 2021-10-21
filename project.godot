@@ -26,7 +26,8 @@ window/stretch/aspect="keep"
 [importer_defaults]
 
 texture={
-"flags/filter": false
+"flags/filter": false,
+"flags/repeat": 1
 }
 
 [input]
