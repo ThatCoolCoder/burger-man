@@ -25,3 +25,9 @@ static func chunk_list(list: Array, chunk_size: int):
 static func set_sprite_size(sprite: Sprite, size: Vector2, texture: Texture):
 	sprite.scale.x = size.x / texture.get_width()
 	sprite.scale.y = size.y / texture.get_height()
+
+static func is_in_one_group(node: Node, groups):
+	for group in groups:
+		if node.is_in_group(group):
+			return true
+	return false

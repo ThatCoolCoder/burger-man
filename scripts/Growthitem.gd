@@ -1,6 +1,6 @@
 extends Node2D
 
-export var radius := 10.0 setget set_radius
+export var radius := 20.0 setget set_radius
 
 func set_radius(new_radius):
 	radius = new_radius
