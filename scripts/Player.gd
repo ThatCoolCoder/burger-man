@@ -7,6 +7,7 @@ export var acceleration := 750
 export var friction := 1000
 
 export var starting_radius := 60.0
+export var min_radius := 40.0 # you die when your radius gets below this
 var radius := starting_radius setget set_radius
 export var growth_rate := 0.35
 var max_zoom_rate = 0.2
@@ -28,6 +29,9 @@ var velocity = Vector2.ZERO
 func _physics_process(delta):
 	if frozen or not alive:
 		return
+	
+	if radius < min_radius:
+		start_dying()
 	
 	walk(delta)
 	velocity = velocity.clamped(max_speed)
@@ -112,8 +116,7 @@ func _on_Player_area_entered(area):
 	
 	if area.is_in_group("enemy"):
 		print("Ouch!")
-		alive = false
-		$DieTimer.start()
+		start_dying()
 	if area.is_in_group("growth_item"):
 		set_radius(radius + area.radius * growth_rate)
 
@@ -122,6 +125,7 @@ func _on_DieTimer_timeout():
 	print("Dead")
 
 func set_radius(new_radius):
+	print(new_radius)
 	radius = new_radius
 	growth_factor = radius / starting_radius
 	
@@ -132,3 +136,10 @@ func set_radius(new_radius):
 	$CollisionPolygon2D.set_deferred('polygon', polygon) # causes error without set_deferred
 		
 	Utils.set_sprite_size($Sprite, Vector2(radius * 2, radius * 2), $Sprite.texture)
+
+# Other
+# -----
+
+func start_dying():
+	alive = false
+	$DieTimer.start()

@@ -4,9 +4,13 @@ export (PackedScene) var growth_item_prefab
 export var growth_item_rate := 1.0
 export (PackedScene) var enemy_prefab
 export var enemy_rate = 0.3
+export var min_enemy_radius := 30.0
+export var max_enemy_radius := 60.0
 
 func _ready():
 	$Player.position = $StartPosition.position
+	PlayState.reset()
+	$HUD.player = $Player
 
 func _process(delta):
 	if randf() < growth_item_rate / 60:
@@ -17,6 +21,7 @@ func _process(delta):
 	if randf() < enemy_rate / 60:
 		var enemy = enemy_prefab.instance()
 		add_child(enemy)
+		enemy.radius = rand_range(min_enemy_radius, max_enemy_radius)
 		enemy.position = random_viewport_edge_pos(get_canvas_transform().get_scale().x * -100)
 		
 func random_viewport_edge_pos(offset: float = 0.0):

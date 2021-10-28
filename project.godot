@@ -17,6 +17,7 @@ config/icon="res://art/icon.png"
 [autoload]
 
 Utils="*res://scripts/Utils.gd"
+PlayState="*res://scripts/PlayState.gd"
 
 [display]
 

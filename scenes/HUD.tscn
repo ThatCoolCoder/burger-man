@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/main_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Size" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -52.7136
+margin_top = 10.5946
+margin_right = -12.7136
+margin_bottom = 49.5946
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Size: <int>"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BonusPoints" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -166.714
+margin_top = 49.5946
+margin_right = -12.7136
+margin_bottom = 88.5946
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Bonus points: <int>"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TotalScore" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -266.0
+margin_top = 89.0
+margin_right = -13.0
+margin_bottom = 128.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Total score: <int>"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
