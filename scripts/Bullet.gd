@@ -3,10 +3,14 @@ extends Area2D
 export var speed := 400
 export var move_direction = PI / 2
 export var radius := 10.0 setget set_radius
-onready var health := radius
+export (float) var health = null
 export var frozen := false
 export var hits := ['enemy']
 export (PackedScene) var explode_effect
+
+func _ready():
+	if health == null:
+		health = radius
 
 func _physics_process(delta):
 	if frozen:
@@ -30,8 +34,8 @@ func _on_Bullet_area_entered(area: Area2D):
 	
 	# Don't hit the player after just being shot
 	if Utils.is_in_one_group(area, hits):
-		health -= 15.0
-		if health < 0 or true: # todo: make better health system
+		health -= area.radius
+		if health < 0: # todo: make better health system
 			queue_free()
 			var effect = explode_effect.instance()
 			get_parent().add_child(effect)

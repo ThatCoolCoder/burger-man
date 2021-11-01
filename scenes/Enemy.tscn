@@ -1,22 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://art/enemy.png" type="Texture" id=1]
+[ext_resource path="res://art/carrot.svg" type="Texture" id=1]
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://scenes/effects/EnemyExplode.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.5552, 32.1104 )
+extents = Vector2( 20.3462, 47.312 )
 
 [node name="Enemy" type="Area2D" groups=[
 "enemy",
 ]]
 script = ExtResource( 2 )
 speed = 100
+explode_effect = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 4, 4 )
+position = Vector2( -4, 0 )
+scale = Vector2( 0.309624, 0.309624 )
 texture = ExtResource( 1 )
 
 [connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]

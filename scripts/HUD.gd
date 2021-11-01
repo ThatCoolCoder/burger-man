@@ -1,23 +1,19 @@
 extends CanvasLayer
 
-var player = null
 var display_size = null
 var display_bonus_points = null
 export var max_size_change_rate = 15
 export var max_bonus_points_change_rate = 40
 
 func _process(delta: float):
-	if player == null:
-		return
-		
 	update_size_label(delta)
 	update_bonus_points_label(delta)
 	update_total_score_label(delta)
 
 func update_size_label(delta: float):
 	if display_size == null:
-		display_size = player.radius
-	display_size = Utils.converge_value(display_size, player.radius, max_size_change_rate * delta)
+		display_size = PlayState.player.radius
+	display_size = Utils.converge_value(display_size, PlayState.player.radius, max_size_change_rate * delta)
 	$Size.text = "Size: %s" % round(display_size)
 	
 func update_bonus_points_label(delta: float):

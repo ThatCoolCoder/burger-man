@@ -1,9 +1,14 @@
 extends Area2D
 
 export var radius := 20.0 setget set_radius
-export var speed := 200
-export var points_on_kill := 20
+export var speed := 300
+export (float) var points_on_kill = null
+export (PackedScene) var explode_effect
 var frozen = false
+
+func _ready():
+	if points_on_kill == null:
+		points_on_kill = radius
 
 func _physics_process(delta):
 	if frozen:
@@ -19,10 +24,16 @@ func move_towards(entity: Node2D, delta):
 
 func _on_Enemy_area_entered(area):
 	if area.is_in_group("bullet"):
-		queue_free()
+		if not area.frozen:
+			queue_free()
+			var effect = explode_effect.instance()
+			get_parent().add_child(effect)
+			effect.position = position
 		PlayState.bonus_points += points_on_kill
+	if area.is_in_group("player"):
+		queue_free()
 
 func set_radius(new_radius):
 	radius = new_radius
-	Utils.set_sprite_size($Sprite, Vector2(radius, radius), $Sprite.texture)
+	Utils.set_sprite_size($Sprite, Vector2(radius * 2, radius * 2), $Sprite.texture)
 	$CollisionShape2D.shape.extents = Vector2(radius, radius)

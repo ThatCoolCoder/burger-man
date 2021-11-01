@@ -2,23 +2,35 @@ extends Area2D
 
 signal dead
 
+# Movement
+# --------
+
 export var max_speed := 350
 export var acceleration := 750
 export var friction := 1000
 
+# Radius
+# ------
+
 export var starting_radius := 60.0
 export var min_radius := 40.0 # you die when your radius gets below this
 var radius := starting_radius setget set_radius
-export var growth_rate := 0.35
-var max_zoom_rate = 0.2
+export var growth_rate := 0.35 # when you eat 1 unit of food, you grow this many units
+export var shrink_rate := 0.4 # when you touch an enemy of size 1, you shrink this many units
+var max_zoom_rate := 0.2
 var growth_factor := 1.0
 onready var original_collision_polygon = $"CollisionPolygon2D".polygon
+
+# Bullets
+# -------
 
 export var bullet_offset = Vector2(0, -64)
 export (PackedScene) var bullet_prefab
 export var bullet_starting_radius := 10.0
 export var bullet_charge_rate := 10.0
 export var max_bullet_radius := 30.0
+export var bullet_health_exponent := 1.7
+export var bullet_health_multiplier := 0.1
 var crnt_bullet = null
 
 var frozen = false
@@ -82,6 +94,7 @@ func shoot():
 		var true_bullet_offset = bullet_offset * growth_factor
 		crnt_bullet.rotation = crnt_bullet.move_direction + PI
 		crnt_bullet.global_position = global_position + true_bullet_offset.rotated(global_rotation)
+		crnt_bullet.health = pow(crnt_bullet.radius, bullet_health_exponent) * bullet_health_multiplier
 		get_tree().root.add_child(crnt_bullet)
 		set_radius(radius - crnt_bullet.radius)
 		crnt_bullet = null
@@ -115,8 +128,7 @@ func _on_Player_area_entered(area):
 		return
 	
 	if area.is_in_group("enemy"):
-		print("Ouch!")
-		start_dying()
+		set_radius(radius - area.radius * shrink_rate)
 	if area.is_in_group("growth_item"):
 		set_radius(radius + area.radius * growth_rate)
 
@@ -125,7 +137,6 @@ func _on_DieTimer_timeout():
 	print("Dead")
 
 func set_radius(new_radius):
-	print(new_radius)
 	radius = new_radius
 	growth_factor = radius / starting_radius
 	
