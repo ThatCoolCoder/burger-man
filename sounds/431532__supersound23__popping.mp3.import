@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/431532__supersound23__popping.mp3-b3526454c6777d24a0938ba6a0136d2b.mp3str"
+
+[deps]
+
+source_file="res://sounds/431532__supersound23__popping.mp3"
+dest_files=[ "res://.import/431532__supersound23__popping.mp3-b3526454c6777d24a0938ba6a0136d2b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

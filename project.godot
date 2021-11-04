@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Untitled Godot Game"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://art/icon.png"
 
 [autoload]

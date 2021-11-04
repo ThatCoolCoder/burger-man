@@ -8,7 +8,7 @@ var frozen = false
 
 func _ready():
 	if points_on_kill == null:
-		points_on_kill = radius
+		points_on_kill = radius / 2.5
 
 func _physics_process(delta):
 	if frozen:

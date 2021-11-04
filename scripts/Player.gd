@@ -31,6 +31,7 @@ export var bullet_charge_rate := 10.0
 export var max_bullet_radius := 30.0
 export var bullet_health_exponent := 1.7
 export var bullet_health_multiplier := 0.1
+export var shoot_shrink_multiplier := 0.6 # you shrink bullet radius * this when you shoot
 var crnt_bullet = null
 
 var frozen = false
@@ -96,7 +97,7 @@ func shoot():
 		crnt_bullet.global_position = global_position + true_bullet_offset.rotated(global_rotation)
 		crnt_bullet.health = pow(crnt_bullet.radius, bullet_health_exponent) * bullet_health_multiplier
 		get_tree().root.add_child(crnt_bullet)
-		set_radius(radius - crnt_bullet.radius)
+		set_radius(radius - crnt_bullet.radius * shoot_shrink_multiplier)
 		crnt_bullet = null
 
 func charge_shoot(delta):
@@ -131,6 +132,7 @@ func _on_Player_area_entered(area):
 		set_radius(radius - area.radius * shrink_rate)
 	if area.is_in_group("growth_item"):
 		set_radius(radius + area.radius * growth_rate)
+		$GrowthSound.play()
 
 func _on_DieTimer_timeout():
 	emit_signal("dead")
