@@ -1,13 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://art/player.svg" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Bullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sounds/431532__supersound23__popping.mp3" type="AudioStream" id=4]
 
-[node name="Player" type="Area2D" groups=[
-"player",
-]]
+[sub_resource type="Animation" id=1]
+resource_name = "shrink"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Player" type="Area2D" groups=["player"]]
 script = ExtResource( 2 )
 acceleration = 2000
 friction = 2500
@@ -37,6 +50,9 @@ polygon = PoolVector2Array( -60.3647, -17.1013, -52.1659, -31.1864, -43.3365, -4
 
 [node name="GrowthSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/shrink = SubResource( 1 )
 
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="timeout" from="DieTimer" to="." method="_on_DieTimer_timeout"]

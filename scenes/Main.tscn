@@ -18,6 +18,10 @@ growth_item_prefab = ExtResource( 6 )
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 512.548, 298.491 )
 
-[node name="HUD" parent="." instance=ExtResource( 7 )]
-
 [node name="EnemySpawner" parent="." instance=ExtResource( 8 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[connection signal="dead" from="Player" to="." method="_on_Player_dead"]

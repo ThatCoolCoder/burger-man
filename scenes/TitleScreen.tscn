@@ -7,6 +7,7 @@
 [ext_resource path="res://art/burger.svg" type="Texture" id=5]
 
 [node name="TitleScreen" type="Node2D"]
+position = Vector2( 0, 1 )
 script = ExtResource( 3 )
 project_urls = [ "https://naltonsoftware.com", "https://github.com/That-Cool-Coder" ]
 background_burger_prefab = ExtResource( 4 )
@@ -77,14 +78,14 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="CanvasLayer/Advertising"]
 margin_left = 239.0
-margin_right = 596.0
+margin_right = 595.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 2 )
 text = "Made by ThatCoolCoder - "
 
 [node name="AdvertisingLink" type="LinkButton" parent="CanvasLayer/Advertising"]
-margin_left = 600.0
-margin_right = 785.0
+margin_left = 599.0
+margin_right = 784.0
 margin_bottom = 39.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )
@@ -93,7 +94,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Score" type="Label" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

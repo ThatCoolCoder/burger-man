@@ -15,3 +15,8 @@ func _process(delta):
 		growth_item.position = Utils.random_viewport_edge_pos(get_canvas_transform(),
 			get_viewport_rect(), get_canvas_transform().get_scale().x * 100)
 		add_child(growth_item)
+
+
+func _on_Player_dead():
+	$CanvasLayer/HUD.hide()
+	$CanvasLayer/GameOverHUD.show()

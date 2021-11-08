@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/HomingBullet.gd" type="Script" id=2]
+[ext_resource path="res://art/carrot.svg" type="Texture" id=3]
+[ext_resource path="res://scenes/effects/EnemyExplode.tscn" type="PackedScene" id=4]
+
+[node name="RangedEnemyBullet" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+kills = [ "player" ]
+explode_effect = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( -0.431427, -1.23937 )
+scale = Vector2( 0.105967, 0.105967 )
+texture = ExtResource( 3 )
+
+[node name="VisibilityNotifier2D" parent="." index="2"]
+scale = Vector2( 1.53383, 1.5234 )

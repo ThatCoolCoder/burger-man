@@ -6,6 +6,7 @@ export (int) var background_burger_amount
 
 func _ready():
 	create_background_burgers()
+	$CanvasLayer/Score.text = "High score: %s" % Score.load_high_score()
 
 func _on_PlayButton_pressed():
 	get_tree().change_scene("res://scenes/Main.tscn")
