@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/enemies/TomatoEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/RangedEnemy.gd" type="Script" id=2]
+[ext_resource path="res://art/carrot.svg" type="Texture" id=3]
+[ext_resource path="res://scenes/RangedEnemyBullet.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.2437, 48.7302 )
+
+[node name="RangedCarrotEnemy" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+points_on_kill_mult = 20.0
+visual_range = 250
+bullet_prefab = ExtResource( 4 )
+firing_interval = 2
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( -13.4601, -10.301 )
+scale = Vector2( 0.355349, 0.355349 )
+texture = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="." index="2"]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -8,13 +8,13 @@ var player
 var enemy_types = {
 	"normal" : EnemyType.new(0.8, 1.2,
 		0, 200,
-		0.3 / 60.0, preload("res://scenes/enemies/Enemy.tscn")),
+		0.3 / 60.0, preload("res://scenes/enemies/TomatoEnemy.tscn")),
 	"ranged" : EnemyType.new(1, 1.5,
 		110, 100000,
-		0.3 / 60.0, preload("res://scenes/enemies/RangedEnemy.tscn")),
+		0.3 / 60.0, preload("res://scenes/enemies/RangedCarrotEnemy.tscn")),
 	"big" : EnemyType.new(4, 8,
 		150, 100000,
-		0.3 / 60.0, preload("res://scenes/enemies/Enemy.tscn"))
+		0.3 / 60.0, preload("res://scenes/enemies/TomatoEnemy.tscn"))
 }
 
 func _process(delta: float):
