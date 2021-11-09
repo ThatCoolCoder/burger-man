@@ -6,6 +6,8 @@
 
 [node name="RangedEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+points_on_kill_mult = 20.0
+visual_range = 250
 bullet_prefab = ExtResource( 4 )
 firing_interval = 2
 

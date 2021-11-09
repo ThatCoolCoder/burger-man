@@ -1,7 +1,7 @@
 extends Node
 
-var min_scale := 1
-var max_scale := 2
+var min_scale := 1.0
+var max_scale := 2.0
 var min_player_radius := 0
 var max_player_radius := 1000
 var spawn_chance := 1.0 / 60.0

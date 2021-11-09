@@ -1,6 +1,14 @@
 extends Control
 
+func _process(delta: float):
+	$Score.text = "You scored: %s" % floor(floor(Score.crnt_score) * Score.display_multiplier)
+	$HighScore.text = "Your high score: %s" % floor(Score.load_high_score() * Score.display_multiplier)
+	
+	if Score.crnt_score >= Score.load_high_score():
+		$NewHighScore.show()
+	else:
+		$NewHighScore.hide()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body
+
+func _on_ContinueButton_pressed():
+	get_tree().change_scene("res://scenes/TitleScreen.tscn")

@@ -12,44 +12,78 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -91.5874
+margin_top = 73.0599
+margin_right = 92.4126
+margin_bottom = 132.06
+custom_fonts/font = ExtResource( 1 )
+text = "You Lose"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Score" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -64.381
-margin_top = -154.052
-margin_right = 68.619
-margin_bottom = -115.052
-grow_horizontal = 0
+margin_left = -114.587
+margin_top = 196.838
+margin_right = 111.413
+margin_bottom = 235.838
+grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )
-text = "Size: <int>"
-align = 2
+text = "You scored: <int>"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HighScore" type="Label" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -266.0
-margin_top = 89.0
-margin_right = -13.0
-margin_bottom = 128.0
-grow_horizontal = 0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -114.587
+margin_top = 306.368
+margin_right = 111.413
+margin_bottom = 345.368
+grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )
-text = "Total score: <int>"
-align = 2
+text = "Your high score <int>"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="."]
+[node name="NewHighScore" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -90.0
-margin_top = 34.9623
-margin_right = 90.0
-margin_bottom = 93.9623
-custom_fonts/font = ExtResource( 1 )
-text = "You Lose"
+margin_left = -140.675
+margin_top = 410.074
+margin_right = 134.325
+margin_bottom = 449.074
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+text = "New high score!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -68.5
+margin_top = -110.397
+margin_right = 68.5
+margin_bottom = -65.397
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]

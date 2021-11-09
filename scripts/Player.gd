@@ -49,7 +49,7 @@ func _physics_process(delta):
 	walk(delta)
 	velocity = velocity.clamped(max_speed)
 	
-	position += velocity * delta * PlayState.speed_multiplier
+	position += velocity * delta * Score.speed_multiplier
 	
 	if Input.is_action_just_pressed("shoot"):
 		start_charging_shoot()
@@ -62,7 +62,7 @@ func _physics_process(delta):
 	position_bullet()
 	update_camera_zoom(delta)
 	
-	#PlayState.speed_multiplier = growth_factor
+	#Score.speed_multiplier = growth_factor
 
 func walk(delta: float):
 	var move_direction := Vector2.ZERO

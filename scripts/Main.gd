@@ -5,8 +5,8 @@ export var growth_item_rate := 1.0
 
 func _ready():
 	$Player.position = $StartPosition.position
-	PlayState.reset()
-	PlayState.player = $Player
+	$EnemySpawner.player = $Player
+	Score.crnt_score = 0
 
 func _process(delta):
 	if randf() < growth_item_rate / 60:
@@ -18,5 +18,7 @@ func _process(delta):
 
 
 func _on_Player_dead():
+	if Score.crnt_score > Score.load_high_score():
+		Score.save_high_score(Score.crnt_score)
 	$CanvasLayer/HUD.hide()
 	$CanvasLayer/GameOverHUD.show()

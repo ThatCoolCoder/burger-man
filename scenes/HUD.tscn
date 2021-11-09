@@ -10,44 +10,16 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+max_size_change_rate = null
+max_bonus_points_change_rate = null
 
-[node name="Size" type="Label" parent="."]
+[node name="Score" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -52.7136
-margin_top = 10.5946
-margin_right = -12.7136
-margin_bottom = 49.5946
-grow_horizontal = 0
-custom_fonts/font = ExtResource( 1 )
-text = "Size: <int>"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BonusPoints" type="Label" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -166.714
-margin_top = 49.5946
-margin_right = -12.7136
-margin_bottom = 88.5946
-grow_horizontal = 0
-custom_fonts/font = ExtResource( 1 )
-text = "Bonus points: <int>"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TotalScore" type="Label" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -266.0
-margin_top = 89.0
-margin_right = -13.0
-margin_bottom = 128.0
+margin_left = -264.413
+margin_top = 17.567
+margin_right = -11.4126
+margin_bottom = 56.567
 grow_horizontal = 0
 custom_fonts/font = ExtResource( 1 )
 text = "Total score: <int>"

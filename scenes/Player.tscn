@@ -20,7 +20,9 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Player" type="Area2D" groups=["player"]]
+[node name="Player" type="Area2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 acceleration = 2000
 friction = 2500
@@ -42,7 +44,7 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 
 [node name="DieTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 one_shot = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

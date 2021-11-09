@@ -13,7 +13,7 @@ func _physics_process(delta):
 		
 	var movement = Vector2(0, speed)
 	movement = movement.rotated(move_direction)
-	position += movement * delta * PlayState.speed_multiplier
+	position += movement * delta * Score.speed_multiplier
 	health = scale.x * 10
 
 func _on_VisibilityNotifier2D_viewport_exited(viewport):
