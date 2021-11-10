@@ -1,7 +1,7 @@
 extends Node2D
 
 export (PackedScene) var growth_item_prefab
-export var growth_item_rate := 3.0
+export var growth_item_rate := 2.5
 
 func _ready():
 	$Player.position = $StartPosition.position

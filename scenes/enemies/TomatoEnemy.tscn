@@ -5,11 +5,9 @@
 [ext_resource path="res://scenes/effects/TomatoEnemyExplode.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 43.5461
+radius = 49.0102
 
-[node name="TomatoEnemy" type="Area2D" groups=[
-"enemy",
-]]
+[node name="TomatoEnemy" type="Area2D" groups=["enemy"]]
 script = ExtResource( 2 )
 speed = 100
 player_damage_mult = 50.0

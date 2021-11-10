@@ -20,9 +20,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Player" type="Area2D" groups=[
-"player",
-]]
+[node name="Player" type="Area2D" groups=["player"]]
 script = ExtResource( 2 )
 acceleration = 2000
 friction = 2500
