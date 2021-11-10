@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/enemies/TomatoEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/RangedEnemy.gd" type="Script" id=2]
 [ext_resource path="res://art/carrot.svg" type="Texture" id=3]
 [ext_resource path="res://scenes/RangedEnemyBullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/effects/CarrotEnemyExplode.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.2437, 48.7302 )
@@ -11,6 +12,7 @@ extents = Vector2( 20.2437, 48.7302 )
 [node name="RangedCarrotEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 points_on_kill_mult = 20.0
+explode_effect = ExtResource( 5 )
 visual_range = 250
 bullet_prefab = ExtResource( 4 )
 firing_interval = 2

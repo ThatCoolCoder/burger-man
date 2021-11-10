@@ -1,10 +1,10 @@
 extends Control
 
 func _process(delta: float):
-	$Score.text = "You scored: %s" % floor(floor(Score.crnt_score) * Score.display_multiplier)
+	$Score.text = "You scored: %s" % floor(Score.crnt_score * Score.display_multiplier)
 	$HighScore.text = "Your high score: %s" % floor(Score.load_high_score() * Score.display_multiplier)
 	
-	if Score.crnt_score >= Score.load_high_score():
+	if floor(Score.crnt_score) >= floor(Score.load_high_score()):
 		$NewHighScore.show()
 	else:
 		$NewHighScore.hide()

@@ -8,6 +8,7 @@ var health
 export (float) var points_on_kill_mult = 10.0
 var points_on_kill
 export (PackedScene) var explode_effect
+export var explode_effect_scale_mult := 1.0
 var frozen = false
 
 func _ready():
@@ -34,6 +35,7 @@ func _on_Enemy_area_entered(area):
 				queue_free()
 				var effect = explode_effect.instance()
 				get_parent().add_child(effect)
+				effect.scale = Vector2.ONE * scale.x * explode_effect_scale_mult
 				effect.position = position
 				Score.crnt_score += points_on_kill
 	if area.is_in_group("player"):

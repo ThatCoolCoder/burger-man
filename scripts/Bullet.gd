@@ -2,6 +2,7 @@ extends Area2D
 
 export var speed := 400
 export var move_direction = PI / 2
+export var health_multiplier := 10.0
 var health
 export var frozen := false
 export var kills := ['enemy']
@@ -14,7 +15,7 @@ func _physics_process(delta):
 	var movement = Vector2(0, speed)
 	movement = movement.rotated(move_direction)
 	position += movement * delta * Score.speed_multiplier
-	health = scale.x * 10
+	health = scale.x * health_multiplier
 
 func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	if not frozen:

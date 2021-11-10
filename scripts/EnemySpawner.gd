@@ -10,11 +10,11 @@ var enemy_types = [
 		0, 200,
 		0.3 / 60.0, preload("res://scenes/enemies/TomatoEnemy.tscn")),
 	EnemyType.new(1, 1.5,
-		110, 100000,
-		0.3 / 60.0, preload("res://scenes/enemies/RangedCarrotEnemy.tscn")),
-	EnemyType.new(4, 8,
-		200, 100000,
-		0.15 / 60.0, preload("res://scenes/enemies/TomatoEnemy.tscn"))
+		90, 100000,
+		0.15 / 60.0, preload("res://scenes/enemies/RangedCarrotEnemy.tscn")),
+	EnemyType.new(0.8, 1.2,
+		120, 100000,
+		0.15 / 60.0, preload("res://scenes/enemies/PumpkinEnemy.tscn"))
 ]
 
 func _process(delta: float):

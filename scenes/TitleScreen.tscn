@@ -78,14 +78,14 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="CanvasLayer/Advertising"]
 margin_left = 239.0
-margin_right = 596.0
+margin_right = 595.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 2 )
 text = "Made by ThatCoolCoder - "
 
 [node name="AdvertisingLink" type="LinkButton" parent="CanvasLayer/Advertising"]
-margin_left = 600.0
-margin_right = 785.0
+margin_left = 599.0
+margin_right = 784.0
 margin_bottom = 39.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )

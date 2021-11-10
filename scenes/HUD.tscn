@@ -10,8 +10,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-max_size_change_rate = null
-max_bonus_points_change_rate = null
 
 [node name="Score" type="Label" parent="."]
 anchor_left = 1.0
