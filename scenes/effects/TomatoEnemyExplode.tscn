@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/AutoplayParticles.gd" type="Script" id=1]
-[ext_resource path="res://art/tomato.svg" type="Texture" id=2]
+[ext_resource path="res://art/tomato_chunk.svg" type="Texture" id=2]
 [ext_resource path="res://sounds/515618__mrickey13__splat-squish-1.wav" type="AudioStream" id=3]
 
 [node name="EnemyExplode" type="CPUParticles2D"]

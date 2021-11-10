@@ -5,23 +5,22 @@ const EnemyType = preload("res://scripts/EnemyType.gd")
 export (PackedScene) var enemy_prefab
 var player
 
-var enemy_types = {
-	"normal" : EnemyType.new(0.8, 1.2,
+var enemy_types = [
+	EnemyType.new(0.6, 1.0,
 		0, 200,
 		0.3 / 60.0, preload("res://scenes/enemies/TomatoEnemy.tscn")),
-	"ranged" : EnemyType.new(1, 1.5,
+	EnemyType.new(1, 1.5,
 		110, 100000,
 		0.3 / 60.0, preload("res://scenes/enemies/RangedCarrotEnemy.tscn")),
-	"big" : EnemyType.new(4, 8,
-		150, 100000,
-		0.3 / 60.0, preload("res://scenes/enemies/TomatoEnemy.tscn"))
-}
+	EnemyType.new(4, 8,
+		200, 100000,
+		0.15 / 60.0, preload("res://scenes/enemies/TomatoEnemy.tscn"))
+]
 
 func _process(delta: float):
 	# Godot knows no function pointers (maybe in 4.0?), so I have to do this
 	
-	for enemy_type_name in enemy_types.keys():
-		var enemy_type = enemy_types[enemy_type_name]
+	for enemy_type in enemy_types:
 		if enemy_type.min_player_radius < player.radius and \
 			player.radius < enemy_type.max_player_radius and \
 			randf() < enemy_type.spawn_chance:
