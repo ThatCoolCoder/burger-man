@@ -8,7 +8,8 @@
 [node name="RangedEnemyBullet" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 health_multiplier = 15.0
-kills = [ "player" ]
+kills_player = true
+kills_enemy = false
 explode_effect = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="1"]

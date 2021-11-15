@@ -7,7 +7,7 @@
    viewBox="0 0 100 100"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
    sodipodi:docname="player.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,8 +25,8 @@
      showgrid="false"
      width="100mm"
      inkscape:zoom="1.1224747"
-     inkscape:cx="-193.76829"
-     inkscape:cy="341.65581"
+     inkscape:cx="2.2272217"
+     inkscape:cy="139.42408"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
      inkscape:window-x="0"
@@ -43,7 +43,7 @@
      inkscape:snap-smooth-nodes="false"
      inkscape:snap-midpoints="false"
      inkscape:snap-object-midpoints="true"
-     inkscape:snap-page="true"
+     inkscape:snap-page="false"
      inkscape:object-nodes="false"
      inkscape:snap-others="true" />
   <defs

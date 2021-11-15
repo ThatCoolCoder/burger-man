@@ -11,6 +11,7 @@ extents = Vector2( 20.2437, 48.7302 )
 
 [node name="RangedCarrotEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+speed = 120
 points_on_kill_mult = 20.0
 explode_effect = ExtResource( 5 )
 visual_range = 250

@@ -8,6 +8,8 @@
 
 [node name="Bullet" type="Area2D" groups=["bullet"]]
 script = ExtResource( 1 )
+health_multiplier = 8.0
+kills_enemy = true
 explode_effect = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

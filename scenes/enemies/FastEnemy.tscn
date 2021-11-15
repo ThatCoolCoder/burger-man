@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/enemies/TomatoEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/FastEnemy.gd" type="Script" id=2]
+
+[node name="FastEnemy" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+speed = 200
+player_damage_mult = 30.0
+explode_effect = null

@@ -134,7 +134,7 @@ func _on_Player_area_entered(area):
 		set_radius(radius + area.radius * growth_rate)
 		$GrowthSound.play()
 	if area.is_in_group("bullet"):
-		if Utils.is_in_one_group(self, area.kills):
+		if area.kills_player:
 			set_radius(radius - shrink_rate * area.health)
 
 func _on_DieTimer_timeout():

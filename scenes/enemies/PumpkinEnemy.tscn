@@ -9,8 +9,9 @@ radius = 260.85
 height = 84.524
 
 [node name="PumpkinEnemy" instance=ExtResource( 1 )]
+speed = 150
 player_damage_mult = 200.0
-health_mult = 40.0
+health_mult = 30.0
 explode_effect = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]

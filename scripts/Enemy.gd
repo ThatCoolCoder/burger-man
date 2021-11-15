@@ -30,7 +30,7 @@ func move_towards(entity: Node2D, delta):
 
 func _on_Enemy_area_entered(area):
 	if area.is_in_group("bullet"):
-		if Utils.is_in_one_group(self, area.kills):
+		if area.kills_enemy:
 			if not area.frozen and area.health > health:
 				queue_free()
 				var effect = explode_effect.instance()

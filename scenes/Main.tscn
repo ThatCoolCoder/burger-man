@@ -28,4 +28,8 @@ position = Vector2( 512.548, 298.491 )
 [node name="GameOverHUD" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
 
+[node name="HelpMenuTimer" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
+[connection signal="timeout" from="HelpMenuTimer" to="." method="_on_HelpMenuTimer_timeout"]
