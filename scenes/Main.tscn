@@ -30,6 +30,7 @@ visible = false
 
 [node name="HelpMenuTimer" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
 
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="timeout" from="HelpMenuTimer" to="." method="_on_HelpMenuTimer_timeout"]

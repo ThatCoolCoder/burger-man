@@ -39,4 +39,5 @@ func _on_Enemy_area_entered(area):
 				effect.position = position
 				Score.crnt_score += points_on_kill
 	if area.is_in_group("player"):
-		queue_free()
+		if area.alive:
+			queue_free()

@@ -94,15 +94,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="Label" parent="CanvasLayer"]
+[node name="ScoreInfo" type="HBoxContainer" parent="CanvasLayer"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -109.5
-margin_top = 127.0
-margin_right = 109.5
-margin_bottom = 166.0
+anchor_bottom = 1.0
+margin_left = -183.5
+margin_top = -165.0
+margin_right = 183.5
+margin_bottom = -120.0
+grow_horizontal = 2
+custom_constants/separation = 30
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="CanvasLayer/ScoreInfo"]
+margin_left = 16.0
+margin_top = 3.0
+margin_right = 235.0
+margin_bottom = 42.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )
 text = "High score: <int>"
@@ -110,6 +122,13 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ResetHighScoreButton" type="Button" parent="CanvasLayer/ScoreInfo"]
+margin_left = 265.0
+margin_right = 351.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 2 )
+text = "Reset"
 
 [node name="BackgroundBurgerEffect" type="CPUParticles2D" parent="."]
 position = Vector2( 512, -50 )
@@ -130,3 +149,4 @@ scale_amount_random = 0.1
 
 [connection signal="pressed" from="CanvasLayer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Advertising/AdvertisingLink" to="." method="_on_AdvertisingLink_pressed"]
+[connection signal="pressed" from="CanvasLayer/ScoreInfo/ResetHighScoreButton" to="." method="_on_ResetHighScoreButton_pressed"]

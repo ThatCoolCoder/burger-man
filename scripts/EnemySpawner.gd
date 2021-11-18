@@ -12,9 +12,9 @@ var enemy_types = [
 	EnemyType.new(1, 1.5,
 		90, 100000,
 		0.15 / 60.0, preload("res://scenes/enemies/RangedCarrotEnemy.tscn")),
-	EnemyType.new(1, 1.5,
-		110, 100000,
-		0.15 / 60.0, preload("res://scenes/enemies/FastEnemy.tscn")),
+	EnemyType.new(0.7, 1.2,
+		90, 100000,
+		0.15 / 60.0, preload("res://scenes/enemies/FastOnionEnemy.tscn")),
 	EnemyType.new(0.8, 1.2,
 		130, 100000,
 		0.15 / 60.0, preload("res://scenes/enemies/PumpkinEnemy.tscn"))

@@ -17,7 +17,6 @@ config/icon="res://art/burger.svg"
 [autoload]
 
 Utils="*res://scripts/Utils.gd"
-PlayState="*res://scripts/PlayState.gd"
 Score="*res://scripts/Score.gd"
 
 [display]
