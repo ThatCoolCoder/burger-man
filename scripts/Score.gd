@@ -5,6 +5,7 @@ const played_before_file = "user://played_before.dat"
 var crnt_score := 0.0
 const display_multiplier := 10.0
 var speed_multiplier := 1.0
+const speed_multiplier_multiplier := 0.5 # speed mult goes up this much for player size
 
 func load_high_score():
 	# Returns 0 if no high score has been set or if the file is corrupted

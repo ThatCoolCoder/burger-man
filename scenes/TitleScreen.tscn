@@ -78,14 +78,14 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="CanvasLayer/Advertising"]
 margin_left = 239.0
-margin_right = 595.0
+margin_right = 596.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 2 )
 text = "Made by ThatCoolCoder - "
 
 [node name="AdvertisingLink" type="LinkButton" parent="CanvasLayer/Advertising"]
-margin_left = 599.0
-margin_right = 784.0
+margin_left = 600.0
+margin_right = 785.0
 margin_bottom = 39.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )
@@ -111,9 +111,9 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="CanvasLayer/ScoreInfo"]
-margin_left = 16.0
+margin_left = 15.0
 margin_top = 3.0
-margin_right = 235.0
+margin_right = 234.0
 margin_bottom = 42.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )
@@ -124,7 +124,7 @@ __meta__ = {
 }
 
 [node name="ResetHighScoreButton" type="Button" parent="CanvasLayer/ScoreInfo"]
-margin_left = 265.0
+margin_left = 264.0
 margin_right = 351.0
 margin_bottom = 45.0
 custom_fonts/font = ExtResource( 2 )

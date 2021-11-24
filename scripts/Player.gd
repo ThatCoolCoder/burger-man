@@ -62,7 +62,7 @@ func _physics_process(delta):
 	position_bullet()
 	update_camera_zoom(delta)
 	
-	#Score.speed_multiplier = growth_factor
+	Score.speed_multiplier = (growth_factor - 1) * Score.speed_multiplier_multiplier + 1
 
 func walk(delta: float):
 	var move_direction := Vector2.ZERO
