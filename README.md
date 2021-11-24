@@ -1,5 +1,5 @@
-# untitled-godot-game
+# Burger Man
 
-A game that doesn't have a name yet because I haven't made it yet
+A top-down shooter game where your fat is your ammunition.
 
 For planning and evaluation look in the `/docs/` directory.
